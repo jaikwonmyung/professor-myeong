@@ -7,51 +7,53 @@ const headerHtml = `
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ASCII CODE | Materializing the Ephemeral</title>
+    <title>ASCII CODE OBJET STUDIO</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="top-nav">
-        <span>Cargo® Demo Site Clone</span>
-        <span>Sample Prvw (Material)</span>
-        <span>Demo Index p.(1-21)</span>
-        <span>Profile (Sample)</span>
+        <span>A-to-Z Execution</span>
+        <span>Commercial Spaces</span>
+        <span>Fabrication Studio</span>
+        <span>Project Archive</span>
     </div>
 
     <!-- Hero Title -->
     <header class="hero-title">
-        <h1>ASCII CODE</h1>
-        <h1>Materializing the Ephemeral</h1>
-        <h1>Anti-gravity Atmospheres</h1>
+        <h1>ASCII CODE OBJET STUDIO</h1>
     </header>
 
     <!-- Manifesto Text Columns -->
     <section class="manifesto-grid">
         <div class="col">
-            <p><strong>Brand Manifesto</strong></p>
-            <p>We interpret the abstract language of digital logic into tangible spatial narratives. ASCII CODE is a premium object fabrication studio that transcends the boundaries of art, fashion, and structural engineering.</p>
-            <p>우리는 디지털 로직의 추상적인 언어를 만질 수 있는 공간적 서사로 치환합니다. 아스키 코드는 예술과 패션, 구조 공학의 경계를 허무는 프리미엄 오브제 제작 스튜디오입니다.</p>
+            <p><strong>A-to-Z Spatial Solutions</strong></p>
+            <p>ASCII CODE OBJET STUDIO is a specialized fabrication firm taking ownership of the entire spatial journey—from foundational conceptualization and precise 3D architectural planning to high-end manufacturing, on-site installation, and final supervision.</p>
+            <p>아스키 코드는 상업 공간과 팝업 스토어의 기획, 3D 설계 단계부터 자체 팩토리를 통한 제작, 현장 시공 및 책임 감리까지 모든 과정을 총괄하는 A-to-Z 오브제 제작 전문 스튜디오입니다.</p>
         </div>
         <div class="col">
-            <p><strong>Technical Artistry</strong></p>
-            <p>Sophisticated Materiality & Chromatic Precision. Our output is defined by an uncompromising commitment to high-end finishing. From hyper-glossy polymers to meticulously brushed surfaces, we curate textures that evoke "Presence".</p>
-            <p>정교한 물성과 색채의 정밀도. 고광택 폴리머부터 섬세하게 가공된 텍스처까지, 우리는 '현존감'과 '분위기'를 형성하는 공간을 창조하며 럭셔리 패션 산업의 엄격한 기준을 충족합니다.</p>
+            <p><strong>Technical Capabilities</strong></p>
+            <p>Our operational framework spans across multiple disciplines: intricate metallic fixtures, advanced polymer/FRP casting, and large-scale 3D printed monuments. We materialize brand identity into tangible assets matching rigorous commercial standards.</p>
+            <p>우리는 섬세한 금속 집기부터 대형 실리콘/FRP 조각, 3D 프린팅 조형물에 이르기까지 폭넓은 물성을 다룹니다. 클라이언트의 브랜드 아이덴티티를 완벽한 마감의 결과물로 치환하여 상업 공간의 기준을 높입니다.</p>
         </div>
         <div class="col">
-            <p><strong>Spatial Narrative</strong></p>
-            <p>Architecting Social Presence. We design objects that are not merely seen, but experienced and shared. Our "Anti-gravity" design language creates surreal moments that captivate the digital generation.</p>
-            <p>사회적 현존의 설계. 우리는 단순히 보는 대상을 넘어 공유되는 오브제를 디자인합니다. 아스키 코드만의 초현실적 디자인 언어는 팝업을 바이럴 가능한 문화적 콘텐츠로 변모시킵니다.</p>
+            <p><strong>Commercial Environments</strong></p>
+            <p>Specializing in flagship stores and high-profile pop-up exhibitions, we engineer offline touchpoints that drive unparalleled user interaction. We do not just build objects; we construct viral spatial experiences.</p>
+            <p>플래그십 스토어와 프리미엄 브랜드 팝업 공간을 전문 타겟으로 삼아, 단순한 구조물을 넘어 소비자 참여와 바이럴을 유도하는 압도적인 오프라인 공간 경험을 건축적으로 설계하고 구축합니다.</p>
         </div>
         <div class="col sidebar-col">
             <div class="side-block">
                 <hr>
-                <p><strong>Keywords</strong></p>
-                <p>Defying the Weight of Reality<br>Structural Suspension & Fluidity<br>The Logic of Aesthetics<br>Sartorial Approach to Object Fabrication</p>
+                <p><strong>Capabilities</strong></p>
+                <p>Spatial Conceptualization</p>
+                <p>3D Architectural Modeling</p>
+                <p>Material Engineering</p>
+                <p>Fabrication & Supervision</p>
             </div>
             <div class="side-block">
                 <hr>
                 <p><strong>Contact</strong></p>
-                <p>Instagram ↗<br>Email Inquiry ↗</p>
+                <p><a href="#" style="color:inherit; text-decoration:none;">Instagram ↗</a></p>
+                <p><a href="#" style="color:inherit; text-decoration:none;">Email Inquiry ↗</a></p>
             </div>
         </div>
     </section>
@@ -59,13 +61,12 @@ const headerHtml = `
 
 let projectsHtml = '<section class="projects-container">';
 
-// Reverse the projects so 18 is first, down to 1
 projects.reverse().forEach((proj, i) => {
     const mainImg = proj.images[0] || '';
-    const otherImgs = proj.images.slice(1, 4); // Up to 3 thumbs
+    const otherImgs = proj.images; // Use all images for thumbnails
     
     let thumbHtml = '';
-    if (otherImgs.length > 0) {
+    if (otherImgs.length > 1) { // Show thumbs if there is more than 1 image
         thumbHtml = '<div class="thumb-row">';
         otherImgs.forEach(img => {
             thumbHtml += '<div class="thumb" style="background-image: url(\'' + img + '\')"></div>';
@@ -81,23 +82,19 @@ projects.reverse().forEach((proj, i) => {
             '<div class="proj-text-row">' +
                 '<div class="proj-meta">' +
                     '<p><strong>ASCII CODE</strong></p>' +
-                    '<p>Project Archive</p>' +
+                    '<p>Commercial Space Archive</p>' +
                     '<p>' + proj.title + '</p>' +
                 '</div>' +
                 '<div class="proj-desc">' +
                     '<p><strong>' + proj.koreanTitle + '</strong></p>' +
-                    '<p>Defying physical constraints to create Anti-gravity spaces where the weight of material meets the lightness of imagination.</p>' +
+                    '<p>Providing structural integrity and meticulous design execution for spatial branding.</p>' +
                 '</div>' +
                 '<div class="proj-sus">' +
-                    '<p>Suspension & Fluidity</p>' +
-                    '<p>A sartorial approach to object fabrication. Transcending the analog-digital divide.</p>' +
+                    '<p>Execution & Supervision</p>' +
+                    '<p>A-to-Z fabrication processes converting blueprints into physical touchpoints.</p>' +
                 '</div>' +
             '</div>' +
             '<div class="proj-image-box">' +
-                '<div class="crosshair tl"></div>' +
-                '<div class="crosshair tr"></div>' +
-                '<div class="crosshair bl"></div>' +
-                '<div class="crosshair br"></div>' +
                 (mainImg ? '<img loading="lazy" src="' + mainImg + '" alt="' + proj.title + '">' : '') +
             '</div>' +
             thumbHtml +
@@ -105,11 +102,11 @@ projects.reverse().forEach((proj, i) => {
         '<div class="proj-right">' +
             '<div class="right-col-item">' +
                 '<hr>' +
-                '<p><strong>Execution</strong><br>Anti-gravity Fabrication<br>Precision Casting<br>Structural Base</p>' +
+                '<p><strong>Phase</strong><br>Conceptualization<br>Fabrication<br>Installation Setup</p>' +
             '</div>' +
             '<div class="right-col-item">' +
                 '<hr>' +
-                '<p><strong>Context</strong><br>Transcending boundaries of art, fashion, and structural engineering.</p>' +
+                '<p><strong>Context</strong><br>Flagship / Pop-up Operation.</p>' +
             '</div>' +
         '</div>' +
     '</article>';
@@ -119,12 +116,40 @@ projectsHtml += '</section>';
 
 const footerHtml = `
     <footer class="site-footer">
-        <p>ASCII CODE © 2026. All rights reserved.</p>
-        <p>Materializing the Ephemeral.</p>
+        <p>ASCII CODE OBJET STUDIO © 2026. All rights reserved.</p>
     </footer>
+
+    <!-- Interactive JS for Image Swapping -->
+    <script>
+        document.querySelectorAll('.thumb').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                // Extract URL from inline background-image
+                const bgStyle = this.style.backgroundImage;
+                const urlMatch = bgStyle.match(/url\\(["']?(.*?)["']?\\)/);
+                if (urlMatch && urlMatch[1]) {
+                    const newSrc = urlMatch[1];
+                    const centerBox = this.closest('.proj-center');
+                    const mainImg = centerBox.querySelector('.proj-image-box img');
+                    
+                    if (mainImg.src.endsWith(newSrc)) return; // Don't swap if same
+                    
+                    // Fade out
+                    mainImg.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        mainImg.src = newSrc;
+                        // Fade in after the image loads
+                        mainImg.onload = () => {
+                            mainImg.style.opacity = '1';
+                        };
+                    }, 300); // Wait for CSS transition timing
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 `;
 
 fs.writeFileSync('./index.html', headerHtml + projectsHtml + footerHtml);
-console.log('index.html generated successfully.');
+console.log('index.html with interactive JS generated successfully.');

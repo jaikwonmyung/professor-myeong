@@ -1,8 +1,11 @@
-/* Brutalist CSS - Cargo Neue Grafik Clone */
+/* Architectural & Brutalist CSS - ASCII CODE */
 :root {
     --bg-color: #ffffff;
-    --text-color: #1a1a1a;
-    --line-color: #e0e0e0;
+    --text-color: #111111;
+    --line-color: #d8d8d8;
+    --serif-font: "Times New Roman", Times, serif;
+    --sans-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 * {
@@ -15,9 +18,9 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    line-height: 1.4;
+    font-family: var(--sans-font);
+    font-size: 11px;
+    line-height: 1.5;
     padding-bottom: 100px;
 }
 
@@ -28,7 +31,7 @@ hr {
 }
 
 strong {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* TOP NAV ROW */
@@ -36,45 +39,67 @@ strong {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-    font-size: 11px;
+    font-size: 10px;
     border-bottom: 1px solid var(--line-color);
-    color: #666;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 /* MAIN HERO TITLE */
 .hero-title {
-    padding: 40px 20px 20px;
+    padding: 60px 20px 40px;
 }
 .hero-title h1 {
-    font-size: 8.5vw;
+    font-family: var(--serif-font);
+    font-size: 4.5vw;
     line-height: 0.95;
-    letter-spacing: -0.04em;
-    font-weight: 700;
-}
-.hero-title h1:nth-child(2) {
-    color: #444;
-}
-.hero-title h1:nth-child(3) {
-    color: #666;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    color: var(--text-color);
 }
 
 /* MANIFESTO GRID */
 .manifesto-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 30px;
     padding: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
 }
 
+.manifesto-grid .col {
+    font-family: var(--serif-font);
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+}
 .manifesto-grid .col p {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     word-break: keep-all;
+    text-align: justify;
+}
+.manifesto-grid .col p strong {
+    font-family: var(--sans-font);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #000;
+    display: block;
+    margin-bottom: 5px;
+}
+.manifesto-grid .col.sidebar-col {
+    font-family: var(--sans-font);
+    font-size: 11px;
+    color: #666;
+    text-align: left;
 }
 
 .sidebar-col .side-block {
     margin-bottom: 30px;
-    font-size: 11px;
+}
+.sidebar-col .side-block p strong {
+    display: inline;
 }
 
 /* PROJECTS SECTION */
@@ -86,18 +111,20 @@ strong {
     display: grid;
     grid-template-columns: 1fr 6fr 2fr;
     gap: 40px;
-    margin-bottom: 120px;
+    margin-bottom: 160px;
     position: relative;
     align-items: start;
 }
 
 /* BIG NUMBER */
 .proj-number {
-    font-size: 140px;
-    line-height: 0.72;
-    font-weight: 700;
+    font-family: var(--sans-font);
+    font-size: 100px;
+    line-height: 0.75;
+    font-weight: 500;
     letter-spacing: -0.05em;
-    margin-top: -5px;
+    margin-top: -3px;
+    color: var(--text-color);
 }
 
 /* CENTER PROJECT INFO */
@@ -115,13 +142,13 @@ strong {
     color: #444;
 }
 .proj-text-row p { margin-bottom: 6px; }
-.proj-text-row strong { color: #000; font-weight: 500; }
+.proj-text-row strong { color: #000; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; font-size: 10px; }
 
 /* IMAGE BOX WITH CROSSHAIRS */
 .proj-image-box {
     position: relative;
     width: 100%;
-    background-color: #f4f4f4;
+    background-color: #f7f7f7;
     border: none;
     padding: 0;
     margin-bottom: 15px;
@@ -133,32 +160,13 @@ strong {
 }
 
 .proj-image-box img {
+    height: auto;
     width: 100%;
-    height: 100%;
     max-height: 85vh;
     object-fit: contain;
     mix-blend-mode: multiply;
+    transition: opacity 0.3s ease;
 }
-
-/* Crosshairs logic */
-.crosshair {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    pointer-events: none;
-}
-.crosshair::before, .crosshair::after {
-    content: '';
-    position: absolute;
-    background-color: #999;
-}
-.crosshair::before { width: 100%; height: 1px; top: 50%; left: 0; }
-.crosshair::after { height: 100%; width: 1px; left: 50%; top: 0; }
-
-.crosshair.tl { top: 20px; left: 20px; }
-.crosshair.tr { top: 20px; right: 20px; }
-.crosshair.bl { bottom: 20px; left: 20px; }
-.crosshair.br { bottom: 20px; right: 20px; }
 
 /* THUMBNAILS */
 .thumb-row {
@@ -167,12 +175,19 @@ strong {
 }
 
 .thumb {
-    width: 80px;
-    height: 100px;
+    width: 60px;
+    height: 80px;
     background-color: #eee;
     background-size: cover;
     background-position: center;
-    border: 1px solid var(--line-color);
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: var(--transition);
+}
+.thumb:hover {
+    opacity: 1;
+    transform: translateY(-2px);
 }
 
 /* RIGHT SIDEBAR ON PROJECTS */
@@ -183,15 +198,21 @@ strong {
     font-size: 11px;
     margin-bottom: 20px;
     line-height: 1.5;
+    color: #666;
+}
+.right-col-item strong {
+    color: #000;
 }
 
 /* FOOTER */
 .site-footer {
     text-align: center;
-    padding: 40px;
+    padding: 60px 40px;
     border-top: 1px solid var(--line-color);
-    font-size: 11px;
-    color: #666;
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 /* RESPONSIVE DESIGN FOR MOBILE */
@@ -204,7 +225,7 @@ strong {
         gap: 20px;
     }
     .proj-number {
-        font-size: 20vw;
+        font-size: 60px;
         margin-bottom: 20px;
     }
     .proj-text-row {
@@ -214,7 +235,7 @@ strong {
         display: none;
     }
     .hero-title h1 {
-        font-size: 10vw;
+        font-size: 8vw;
     }
     .proj-right {
         padding-top: 0;
